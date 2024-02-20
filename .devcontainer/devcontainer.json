@@ -1,0 +1,24 @@
+{
+	"name": "jetlinks-community2",
+	"image": "eclipse-temurin:8u402-b06-jdk-jammy",
+	"runArgs": [
+		"--name",
+		"jetlinks-community2",
+		"--cap-add=SYS_ADMIN",
+		"--cap-add=MKNOD",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt=apparmor:unconfined",
+		"--security-opt=seccomp:unconfined",
+		"--link",
+		"redis:redis",
+		"--link",
+		"postgres:postgres",
+		"--link",
+		"elasticsearch:elasticsearch",
+		"--net",
+		"dev-env_default"
+		// "--device=/dev/loop-control:/dev/loop-control",
+		// "--device-cgroup-rule=b 7:* rmw",
+		// "--device-cgroup-rule=b 259:* rmw"
+	]
+}
